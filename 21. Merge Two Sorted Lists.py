@@ -46,4 +46,3 @@ node4.next = node5
 node5.next = node6
 
 print(S.mergeTwoLists(node1, node4).next.next.next.val)
- 
