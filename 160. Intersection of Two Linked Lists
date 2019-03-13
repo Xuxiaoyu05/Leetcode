@@ -1,0 +1,65 @@
+# 编写一个程序，找到两个单链表相交的起始节点。
+
+# listA = [4,1,8,4,5], listB = [5,0,1,8,4,5]，相交的起始结点为8
+
+# -*- coding:UTF-8 -*-
+
+class ListNode:
+  def __init__(self, x):
+    self.val = x
+    self.next = None
+    
+class Solution:
+  def getIntersectionNode(self, headA, headB):
+    
+    curA, curB = headA, headB
+    countA, countB = 0, 0
+    
+    while curA:
+      curA = curA.next
+      countA += 1
+    
+    while curB:
+      curB = curB.next
+      countB += 1
+    
+    gap = abs(countA - countB)
+    
+    if countA > countB:
+      while gap != 0:
+        headA = headA.next
+        gap -= 1
+    else:
+      while gap != 0:
+        headB = headB.next
+        gap -= 1
+    
+    while headA and headB:
+      if headA == headB:
+        return headA
+      headA = headA.next
+      headB = headB.next
+    return None
+      
+S = Solution()
+
+node1 = ListNode(4)
+node2 = ListNode(1)
+node3 = ListNode(8)
+node4 = ListNode(4)
+node5 = ListNode(5)
+
+node1.next = node2
+node2.next = node3
+node3.next = node4
+node4.next = node5
+
+node6 = ListNode(5)
+node7 = ListNode(0)
+node8 = ListNode(1)
+
+node6.next = node7
+node7.next = node8
+node8.next = node3      
+
+print(S.getIntersectionNode(node1, node6).val)
