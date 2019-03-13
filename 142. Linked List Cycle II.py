@@ -8,7 +8,7 @@ class ListNode:
     self.next = None
     
 class Solution:
-  def detectCycle(self, head)
+  def detectCycle(self, head):
     if not head:
       return None
     
