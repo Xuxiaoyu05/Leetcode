@@ -39,14 +39,12 @@ class Solution:
         if node.right:
           childs.append(node.right)
           
-       if flag:
-        res.append(level)
-       else:
+      if not flag:
         level.reverse()
-        res.append(level)
+      res.append(level)
       flag = not flag
-      
       queue = childs
+      
     return res
     
 S = Solution()
