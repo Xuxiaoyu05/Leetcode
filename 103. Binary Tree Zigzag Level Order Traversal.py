@@ -45,6 +45,8 @@ class Solution:
         level.reverse()
         res.append(level)
       flag = not flag
+      
+      queue = childs
     return res
     
 S = Solution()
