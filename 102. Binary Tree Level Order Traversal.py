@@ -20,12 +20,12 @@ class Solution:
       root.right = self.createTree(alist[2])
     return root
     
-  def levelOrder(self, head):
-    if not head:
+  def levelOrder(self, root):
+    if not root:
       return []
     
     queue = []
-    queue.append(head)
+    queue.append(root)
     res = []
     
     while queue:
